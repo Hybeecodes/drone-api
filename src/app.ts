@@ -1,6 +1,7 @@
 import express from 'express';
 
 import IndexRouter from './routes/home.route';
+import DroneRouter from './routes/drone.route';
 import serviceLocator from './shared/DI/injector';
 
 import {IConfigService} from "./shared/services/config/config.service.interface";
@@ -25,6 +26,7 @@ app.use(requestLoggerInterceptor);
 
 // routes
 app.use('/api', IndexRouter);
+app.use('/api/drones', DroneRouter);
 
 // Generic Error Handler
 app.use(errorHandler);

@@ -5,32 +5,32 @@ import {
     JoinColumn,
     ManyToOne,
     PrimaryGeneratedColumn,
-    UpdateDateColumn
-} from "typeorm";
-import {Drone} from "./drone.entity";
+    UpdateDateColumn,
+} from 'typeorm';
+import { Drone } from './drone.entity';
 
-@Entity({name: 'medications'})
+@Entity({ name: 'medications' })
 export class Medication {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({nullable: false, type: 'varchar', length: 255})
+    @Column({ nullable: false, type: 'varchar', length: 255 })
     name: string;
 
-    @Column({nullable: false, type: 'smallint'})
+    @Column({ nullable: false, type: 'float' })
     weight: number;
 
-    @Column({nullable: false, type: 'varchar', length: 255, unique: true})
+    @Column({ nullable: false, type: 'varchar', length: 255, unique: true })
     code: string;
 
-    @Column({nullable: false, type: 'varchar', length: 255})
+    @Column({ nullable: false, type: 'varchar', length: 255 })
     image: string;
 
-    @ManyToOne(() => Drone, drone => drone.medications)
-    @JoinColumn({name: 'droneId'})
+    @ManyToOne(() => Drone, (drone) => drone.medications)
+    @JoinColumn({ name: 'droneId' })
     drone: Drone;
 
-    @Column({name: 'droneId', nullable: false})
+    @Column({ name: 'droneId', nullable: false })
     droneId: number;
 
     @CreateDateColumn()
