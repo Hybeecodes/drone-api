@@ -1,7 +1,6 @@
 import express from 'express';
 
 import IndexRouter from './routes/home.route';
-import todoRouter from './routes/todo.route';
 import serviceLocator from './shared/DI/injector';
 
 import {IConfigService} from "./shared/services/config/config.service.interface";
@@ -26,7 +25,6 @@ app.use(requestLoggerInterceptor);
 
 // routes
 app.use('/api', IndexRouter);
-app.use('/api/todos', todoRouter);
 
 // Generic Error Handler
 app.use(errorHandler);

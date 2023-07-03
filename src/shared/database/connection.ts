@@ -20,7 +20,7 @@ export const dbCreateConnection = async (localConnectionOptions?: LocalConnectio
         logger.log(`Database connection success. Connection name: '${conn.name}' Database: '${conn.options.database}'`);
     } catch (err) {
         logger.error(`Database connection error: ${err}`);
-        if (err.name === 'AlreadyHasActiveConnectionError') {
+        if (err['name'] === 'AlreadyHasActiveConnectionError') {
             return getConnectionManager().get(connectionOptions.name);
         }
         logger.error(err);
