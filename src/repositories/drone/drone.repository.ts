@@ -52,8 +52,8 @@ export class DroneRepository implements IDroneRepository {
       }
     }
     return builder
-        .skip(offset || 0)
-        .take(limit || 10)
-        .getManyAndCount();
+      .skip(offset || 0)
+      .take(limit || 10)
+      .getManyAndCount();
   }
 }

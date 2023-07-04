@@ -5,39 +5,39 @@ import { Medication } from './medication.entity';
 
 @Entity({ name: 'drones' })
 export class Drone {
-    @PrimaryGeneratedColumn()
-    id: number;
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column({ nullable: false, unique: true, type: 'varchar', length: 255 })
-    serialNumber: string;
+  @Column({ nullable: false, unique: true, type: 'varchar', length: 255 })
+  serialNumber: string;
 
-    @Column({ type: 'enum', enum: DroneModel, nullable: false })
-    model: string;
+  @Column({ type: 'enum', enum: DroneModel, nullable: false })
+  model: string;
 
-    @Column({ type: 'float', nullable: false })
-    weight: number;
+  @Column({ type: 'float', nullable: false })
+  weight: number;
 
-    @Column({ type: 'float', nullable: false })
-    battery: number;
+  @Column({ type: 'float', nullable: false })
+  battery: number;
 
-    @Column({ type: 'enum', enum: DroneState, nullable: false, default: DroneState.IDLE })
-    state: string;
+  @Column({ type: 'enum', enum: DroneState, nullable: false, default: DroneState.IDLE })
+  state: string;
 
-    @OneToMany(() => Medication, (medication) => medication.drone)
-    medications?: Medication[];
+  @OneToMany(() => Medication, (medication) => medication.drone)
+  medications?: Medication[];
 
-    @CreateDateColumn()
-    createdAt: Date;
+  @CreateDateColumn()
+  createdAt: Date;
 
-    @UpdateDateColumn()
-    updatedAt: Date;
+  @UpdateDateColumn()
+  updatedAt: Date;
 }
 
 export interface IDroneDto {
-    id: number;
-    serialNumber: string;
-    model: string;
-    weight: number;
-    battery: number;
-    state: string;
+  id: number;
+  serialNumber: string;
+  model: string;
+  weight: number;
+  battery: number;
+  state: string;
 }

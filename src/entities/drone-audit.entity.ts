@@ -8,30 +8,25 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { Drone } from './drone.entity';
+import { DroneState } from '../enums/drone-state.enum';
 
-@Entity({ name: 'medications' })
-export class Medication {
+@Entity()
+export class DroneAudit {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ nullable: false, type: 'varchar', length: 255 })
-  name: string;
-
-  @Column({ nullable: false, type: 'float' })
-  weight: number;
-
-  @Column({ nullable: false, type: 'varchar', length: 255, unique: true })
-  code: string;
-
-  @Column({ nullable: false, type: 'varchar', length: 255 })
-  image: string;
-
-  @ManyToOne(() => Drone, (drone) => drone.medications)
+  @ManyToOne(() => Drone)
   @JoinColumn({ name: 'droneId' })
   drone: Drone;
 
   @Column({ name: 'droneId', nullable: false })
   droneId: number;
+
+  @Column({ nullable: false, type: 'float' })
+  battery: number;
+
+  @Column({ type: 'enum', enum: DroneState, nullable: false })
+  state: string;
 
   @CreateDateColumn()
   createdAt: Date;
