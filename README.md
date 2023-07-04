@@ -49,7 +49,7 @@ For development, you will only need Node.js, a node global package, npm  and MyS
 
 
 ## Assumption
-- No Authentication is required
+- No Authentication is required (Although, in a real world scenario, authentication would be required [JWT, OAuth, etc])
 - Medications are being stored in the database at the point of loading a drone
 
 
