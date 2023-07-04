@@ -30,8 +30,8 @@ For development, you will only need Node.js, a node global package, npm  and MyS
 
 ## Clone
 
-    $ git clone https://oauth:glpat-azD3C7aMFyiQPiVgDasK@gitlab.com/musala-coding-tasks-solutions/ibiniyi-obikoya.git 
-    $ cd ibiniyi-obikoya
+    $ git clone https://github.com/Hybeecodes/drone-api.git 
+    $ cd drone-api
 
 ## Configure app
 - Create a ```.env``` file
